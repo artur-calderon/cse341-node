@@ -24,3 +24,5 @@ export async function run() {
 }
 
 run().catch(console.error);
+
+export const db = client.db("course");
