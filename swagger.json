@@ -9,10 +9,6 @@
 		{
 			"url": "http://localhost:8080",
 			"description": "Local development"
-		},
-		{
-			"url":"https://cse341-node-cbto.onrender.com",
-			"description": "Production"
 		}
 	],
 	"paths": {
