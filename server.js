@@ -6,6 +6,8 @@ import swaggerUi from "swagger-ui-express";
 import { readFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
+import { notFound } from "./middlewares/notFound.js";
+import { errorHandler } from "./middlewares/errorHandler.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -30,6 +32,11 @@ app.use(express.json());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(router);
+
+// Middleware for handling 404 errors
+app.use(notFound);
+app.use(errorHandler);
+
 app.listen(PORT, async () => {
 	try {
 		await run();
